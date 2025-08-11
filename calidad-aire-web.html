@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: La Crisis Silenciosa del Aire Urbano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            content: '→';
+            font-size: 2rem;
+            line-height: 1;
+            color: #FBAF00;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-4">La Crisis Silenciosa del Aire Urbano</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Una mirada profunda a los contaminantes que respiramos, sus devastadores efectos en la salud y las soluciones para un futuro más limpio.</p>
+        </header>
+
+        <section id="kpi" class="text-center mb-16">
+             <div class="bg-white rounded-lg shadow-xl p-8">
+                <p class="text-2xl md:text-3xl font-bold text-blue-600 mb-2">El Segundo Mayor Riesgo de Muerte Global</p>
+                <p class="text-7xl md:text-9xl font-black text-amber-500 my-4">8.1 Millones</p>
+                <p class="text-xl md:text-2xl text-gray-700">de muertes fueron atribuidas a la contaminación del aire en 2021, superando a la mayoría de las enfermedades conocidas.</p>
+            </div>
+        </section>
+
+        <section id="prevalence" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Una Amenaza Universal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Exposición Casi Total</h3>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="populationExposureChart"></canvas>
+                    </div>
+                </div>
+                <div class="text-lg text-gray-700 space-y-4">
+                    <p>La contaminación del aire es una realidad ineludible. Los datos revelan que una abrumadora mayoría de la población mundial vive en áreas donde no se cumplen las directrices de calidad del aire de la OMS.</p>
+                    <p class="font-bold text-blue-700">Esto significa que respirar aire limpio se ha convertido en un lujo en lugar de un derecho humano fundamental, con consecuencias directas y graves para la salud global.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pollutants" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">Los Asesinos Invisibles</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Las partículas finas (PM2.5) son el contaminante más letal. Son tan pequeñas que penetran en los pulmones y el torrente sanguíneo. Así se comparan algunas ciudades con el límite de la OMS.</p>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                 <div class="chart-container h-96 md:h-[500px]">
+                    <canvas id="cityPollutionChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="sources" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">¿De Dónde Viene la Contaminación?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                 <div class="text-lg text-gray-700 space-y-4">
+                    <p>La contaminación urbana es una mezcla compleja de emisiones de múltiples sectores. El transporte, la industria y la calefacción residencial son los principales contribuyentes, creando un cóctel tóxico en nuestras ciudades.</p>
+                    <p class="font-bold text-blue-700">Comprender estas fuentes es el primer paso para diseñar políticas efectivas que ataquen el problema de raíz.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Contribución por Sector (Ejemplo)</h3>
+                    <div class="chart-container h-80">
+                        <canvas id="sourcesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="health-impacts" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">El Cuerpo Bajo Ataque: De la Inhalación a la Enfermedad</h2>
+             <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="flex flex-col md:flex-row justify-around items-center text-center space-y-8 md:space-y-0 md:space-x-4">
+                    <div class="flex flex-col items-center">
+                        <div class="text-6xl mb-2">🫁</div>
+                        <h4 class="text-xl font-bold">1. Inhalación</h4>
+                        <p class="text-sm max-w-xs">PM2.5, NO₂, O₃ entran en los pulmones.</p>
+                    </div>
+                    <div class="hidden md:block flow-arrow">→</div>
+                     <div class="md:hidden transform rotate-90 flow-arrow">→</div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-6xl mb-2">🩸</div>
+                        <h4 class="text-xl font-bold">2. Torrente Sanguíneo</h4>
+                        <p class="text-sm max-w-xs">Las partículas finas atraviesan la barrera pulmonar.</p>
+                    </div>
+                    <div class="hidden md:block flow-arrow">→</div>
+                    <div class="md:hidden transform rotate-90 flow-arrow">→</div>
+                    <div class="flex flex-col items-center">
+                       <div class="text-6xl mb-2">🔥</div>
+                        <h4 class="text-xl font-bold">3. Inflamación Sistémica</h4>
+                        <p class="text-sm max-w-xs">Se desencadena estrés oxidativo en todo el cuerpo.</p>
+                    </div>
+                    <div class="hidden md:block flow-arrow">→</div>
+                     <div class="md:hidden transform rotate-90 flow-arrow">→</div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-6xl mb-2">❤️‍🩹</div>
+                        <h4 class="text-xl font-bold">4. Enfermedad Crónica</h4>
+                        <p class="text-sm max-w-xs">Afecta corazón, cerebro, pulmones y aumenta riesgo de cáncer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Luchando por un Aire Limpio: Soluciones en Acción</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
+                    <div class="text-6xl mb-4">🏙️</div>
+                    <h3 class="text-2xl font-bold mb-2">Zonas de Bajas Emisiones</h3>
+                    <p>Restringir los vehículos más contaminantes en los centros urbanos ha demostrado reducir el NO₂ en más de un 40% en ciudades como Londres.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
+                    <div class="text-6xl mb-4">🌳</div>
+                    <h3 class="text-2xl font-bold mb-2">Infraestructura Verde</h3>
+                    <p>Más parques, techos verdes y jardines verticales que actúan como pulmones urbanos, filtrando contaminantes y reduciendo la temperatura.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
+                    <div class="text-6xl mb-4">🚌</div>
+                    <h3 class="text-2xl font-bold mb-2">Transporte Cero Emisiones</h3>
+                    <p>La electrificación de flotas de autobuses y la promoción de la bicicleta y la caminata son clave para descarbonizar la movilidad.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="citizen-prevention" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Tu Escudo Personal: ¿Cómo Protegerte?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
+                    <div class="text-6xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-2">Monitorea el AQI</h3>
+                    <p>Consulta el Índice de Calidad del Aire (AQI) local diariamente y reduce la actividad intensa al aire libre en días de alta contaminación.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
+                    <div class="text-6xl mb-4">😷</div>
+                    <h3 class="text-2xl font-bold mb-2">Usa Mascarillas N95</h3>
+                    <p>En días de alerta, las mascarillas N95 bien ajustadas son efectivas para filtrar las dañinas partículas finas del aire que respiras.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-xl transition-shadow">
+                    <div class="text-6xl mb-4">🌬️</div>
+                    <h3 class="text-2xl font-bold mb-2">Purifica el Aire Interior</h3>
+                    <p>Utiliza purificadores con filtros HEPA y carbón activado en casa para crear un refugio de aire limpio para ti y tu familia.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-300">
+            <p class="text-gray-600">La lucha por un aire limpio es una responsabilidad compartida. La acción informada a nivel individual y colectivo es nuestra mejor herramienta para proteger nuestra salud y el futuro del planeta.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const FONT_COLOR = '#1F2937';
+        const GRID_COLOR = '#E5E7EB';
+        const PALETTE = {
+            blue: '#00A6FB',
+            mediumBlue: '#0582CA',
+            darkBlue: '#006494',
+            yellow: '#FBAF00',
+            orange: '#FF5733'
+        };
+
+        function wrapLabel(label, maxWidth) {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: {
+                        size: 16,
+                        weight: 'bold'
+                    },
+                    bodyFont: {
+                        size: 14
+                    },
+                    padding: 12
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: FONT_COLOR,
+                        font: {
+                            size: 12
+                        }
+                    },
+                    grid: {
+                        color: GRID_COLOR
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: FONT_COLOR,
+                        font: {
+                            size: 12
+                        }
+                    },
+                    grid: {
+                        color: GRID_COLOR
+                    }
+                }
+            }
+        };
+
+        const populationExposureCtx = document.getElementById('populationExposureChart').getContext('2d');
+        new Chart(populationExposureCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Expuestos a aire insalubre', 'Respiran aire saludable'],
+                datasets: [{
+                    label: 'Población Global',
+                    data: [9, 1],
+                    backgroundColor: [PALETTE.orange, PALETTE.blue],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                cutout: '70%',
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                },
+                plugins: {
+                    ...commonChartOptions.plugins,
+                    legend: {
+                        position: 'bottom',
+                         labels: {
+                            color: FONT_COLOR,
+                            font: { size: 14 },
+                            padding: 20
+                        }
+                    }
+                }
+            }
+        });
+
+        const cityPollutionCtx = document.getElementById('cityPollutionChart').getContext('2d');
+        const cityLabels = ['Nueva Delhi', 'Ghaziabad', 'Dhaka', 'Peshawar', 'Coyhaique'];
+        const cityData = [95, 88, 75, 74, 47];
+        const whoGuideline = 5;
+
+        new Chart(cityPollutionCtx, {
+            type: 'bar',
+            data: {
+                labels: cityLabels,
+                datasets: [
+                {
+                    label: 'PM2.5 (µg/m³)',
+                    data: cityData,
+                    backgroundColor: PALETTE.orange,
+                    borderColor: PALETTE.orange,
+                    borderWidth: 1
+                },
+                {
+                    label: 'Límite OMS (5 µg/m³)',
+                    data: Array(cityData.length).fill(whoGuideline),
+                    type: 'line',
+                    borderColor: PALETTE.darkBlue,
+                    backgroundColor: 'transparent',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                scales: {
+                    ...commonChartOptions.scales,
+                    y: {
+                        ...commonChartOptions.scales.y,
+                        title: {
+                            display: true,
+                            text: 'Concentración de PM2.5 (µg/m³)',
+                            color: FONT_COLOR,
+                            font: { size: 14, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        const sourcesCtx = document.getElementById('sourcesChart').getContext('2d');
+        new Chart(sourcesCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Transporte', 'Industria', 'Calefacción Residencial', 'Agricultura y Otros'],
+                datasets: [{
+                    label: 'Fuentes de Emisión',
+                    data: [40, 25, 20, 15],
+                    backgroundColor: [
+                        PALETTE.blue,
+                        PALETTE.yellow,
+                        PALETTE.orange,
+                        PALETTE.mediumBlue
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                },
+                 plugins: {
+                    ...commonChartOptions.plugins,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: FONT_COLOR,
+                            font: { size: 14 },
+                            padding: 20
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
